@@ -14,6 +14,10 @@ class HZAboutMeController: UITableViewController {
          let modelArray = ["个人详情", "修改密码", "修改密码找回问题答案", "云同步"]
         return modelArray
     }()
+    var targetVCArray: [String]? = {
+        let targetVCArray = [""]
+        return targetVCArray
+    }()
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpHeaderView()
@@ -64,9 +68,12 @@ class HZAboutMeController: UITableViewController {
         return cell
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-    }
+//    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+//        let string = targetVCArray![indexPath.row]
+//        let tagetClass = NSClassFromString(string)
+//        let tagetVC = tagetClass() as UIViewController
+//        navigationController?.showViewController(<#T##vc: UIViewController##UIViewController#>, sender: <#T##AnyObject?#>)
+//    }
 
 
 }
