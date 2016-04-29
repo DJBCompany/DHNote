@@ -107,16 +107,23 @@ class HZNoteController: UIViewController,UITextViewDelegate,UIImagePickerControl
     }
     
     
+    func save(){
+        
+        
+        
+    }
+    
+    
     ///设置主界面
     func setUpUI(){
         view.addSubview(textView)
         textView.frame = view.frame
-        textView.addSubview(collectionView)
-        collectionView.snp_makeConstraints { (make) -> Void in
-            make.center.equalTo(textView.snp_center)
-            make.width.equalTo(ScreenW - 2*albumMargin)
-            make.height.equalTo(collectionView.snp_width)
-        }
+//        textView.addSubview(collectionView)
+//        collectionView.snp_makeConstraints { (make) -> Void in
+//            make.center.equalTo(textView.snp_center)
+//            make.width.equalTo(ScreenW - 2*albumMargin)
+//            make.height.equalTo(collectionView.snp_width)
+//        }
         // print(collectionView.frame)
         
     }
@@ -134,16 +141,16 @@ class HZNoteController: UIViewController,UITextViewDelegate,UIImagePickerControl
         txtVw.font = UIFont.systemFontOfSize(16)
         return txtVw
     }()
-    ///懒加载CollectionView
-    lazy var collectionView:ZXAlbumCollectionView = {
-        let collcetVw = ZXAlbumCollectionView()
-        //MARK: --添加图片 闭包的循环引用
-        collcetVw.addPhotoClosure = { [weak self] ()->() in
-            self?.choosePicture()
-        }
-        collcetVw.backgroundColor = UIColor.greenColor()
-        return collcetVw
-    }()
+//    ///懒加载CollectionView
+//    lazy var collectionView:ZXAlbumCollectionView = {
+//        let collcetVw = ZXAlbumCollectionView()
+//        //MARK: --添加图片 闭包的循环引用
+//        collcetVw.addPhotoClosure = { [weak self] ()->() in
+//            self?.choosePicture()
+//        }
+//        collcetVw.backgroundColor = UIColor.greenColor()
+//        return collcetVw
+//    }()
     ///textView的代理方法
     func textViewDidChange(textView: UITextView) {
         //如果没有内容就显示占位符
@@ -273,7 +280,8 @@ class HZNoteController: UIViewController,UITextViewDelegate,UIImagePickerControl
         }
         
     }
-
+   ///获取textview上的文字
+    
     
     
     ///测试键盘的inputView
@@ -303,7 +311,7 @@ extension HZNoteController{
         
         if picker.sourceType == .PhotoLibrary{
             //创建一个数组,存储选择的照片
-            collectionView.appendImage(image)
+           // collectionView.appendImage(image)
             
             
         }
