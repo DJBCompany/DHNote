@@ -48,7 +48,7 @@
 		834CB81F1CD246D400EFF42B /* HZPoperView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HZPoperView.swift; sourceTree = "<group>"; };
 		834CB8211CD276E100EFF42B /* HZNoteController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HZNoteController.swift; sourceTree = "<group>"; };
 		834CB8231CD2780E00EFF42B /* HZMainNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HZMainNavController.swift; sourceTree = "<group>"; };
-<<<<<<< HEAD
+
 		834CB8251CD2F7A300EFF42B /* Emoticons.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Emoticons.bundle; sourceTree = "<group>"; };
 		834CB8271CD2F7C300EFF42B /* ZXAttachment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXAttachment.swift; sourceTree = "<group>"; };
 		834CB8281CD2F7C300EFF42B /* ZXEmotion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXEmotion.swift; sourceTree = "<group>"; };
@@ -59,9 +59,8 @@
 		834CB8331CD2F9D100EFF42B /* ZXTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXTextView.swift; sourceTree = "<group>"; };
 		834CB8351CD302E500EFF42B /* ZXAlbumCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXAlbumCollectionView.swift; sourceTree = "<group>"; };
 		834CB8371CD30C7400EFF42B /* HZTextButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HZTextButton.swift; sourceTree = "<group>"; };
-=======
+
 		F92205641CD2F8EC00670D12 /* HZMeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HZMeTableViewCell.swift; sourceTree = "<group>"; };
->>>>>>> 7ed7234e1db387d8ab615ec36d6449ee95ddcd38
 		FFB7C4DDC9CF4DAA202F9AA8 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
