@@ -256,24 +256,24 @@ class HZNoteController: UIViewController,UITextViewDelegate,UIImagePickerControl
             
             let shareVc = SLComposeViewController(forServiceType: SLServiceTypeSinaWeibo)
             
-            var  textViewStr = ""
-            textView.attributedText.enumerateAttributesInRange(NSMakeRange(0, textView.attributedText.length), options: []) { (data:[String:AnyObject], range:NSRange, _ ) -> Void in
-                //遍历textView
-                if let attachment = data["NSAttachment"] as? ZXAttachment{
-                    //获取png 对应的chs 字符串
-                    textViewStr += attachment.emotion?.chs ?? ""
-                }else{
-                    //截取range范围内的字符串
-                    let subStr = (self.textView.text as NSString).substringWithRange(range)
-                    
-                    textViewStr += subStr
-                }
-            }
-            
-            
-            shareVc.setInitialText(textViewStr)
+//            var  textViewStr = ""
+//            textView.attributedText.enumerateAttributesInRange(NSMakeRange(0, textView.attributedText.length), options: []) { (data:[String:AnyObject], range:NSRange, _ ) -> Void in
+//                //遍历textView
+//                if let attachment = data["NSAttachment"] as? ZXAttachment{
+//                    //获取png 对应的chs 字符串
+//                    textViewStr += attachment.emotion?.chs ?? ""
+//                }else{
+//                    //截取range范围内的字符串
+//                    let subStr = (self.textView.text as NSString).substringWithRange(range)
+//                    
+//                    textViewStr += subStr
+//                }
+//                
+//            }
+            shareVc.setInitialText(getTextViewStr())
             
             presentViewController(shareVc, animated: true, completion: nil)
+            
             
             textView.text = nil
             
@@ -281,7 +281,24 @@ class HZNoteController: UIViewController,UITextViewDelegate,UIImagePickerControl
         
     }
    ///获取textview上的文字
-    
+    func getTextViewStr()->String{
+                    var  textViewStr = ""
+                    textView.attributedText.enumerateAttributesInRange(NSMakeRange(0, textView.attributedText.length), options: []) { (data:[String:AnyObject], range:NSRange, _ ) -> Void in
+                        //遍历textView
+                        if let attachment = data["NSAttachment"] as? ZXAttachment{
+                            //获取png 对应的chs 字符串
+                            textViewStr += attachment.emotion?.chs ?? ""
+                        }else{
+                            //截取range范围内的字符串
+                            let subStr = (self.textView.text as NSString).substringWithRange(range)
+        
+                            textViewStr += subStr
+                        }
+                        
+                    }
+
+        return textViewStr
+    }
     
     
     ///测试键盘的inputView
