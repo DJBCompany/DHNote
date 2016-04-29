@@ -19,6 +19,7 @@
 		834CB8221CD276E100EFF42B /* HZNoteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834CB8211CD276E100EFF42B /* HZNoteController.swift */; };
 		834CB8241CD2780E00EFF42B /* HZMainNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834CB8231CD2780E00EFF42B /* HZMainNavController.swift */; };
 		F89A2370B88B89FA1129C45B /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFB7C4DDC9CF4DAA202F9AA8 /* Pods.framework */; };
+		F92205651CD2F8EC00670D12 /* HZMeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92205641CD2F8EC00670D12 /* HZMeTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		834CB81F1CD246D400EFF42B /* HZPoperView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HZPoperView.swift; sourceTree = "<group>"; };
 		834CB8211CD276E100EFF42B /* HZNoteController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HZNoteController.swift; sourceTree = "<group>"; };
 		834CB8231CD2780E00EFF42B /* HZMainNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HZMainNavController.swift; sourceTree = "<group>"; };
+		F92205641CD2F8EC00670D12 /* HZMeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HZMeTableViewCell.swift; sourceTree = "<group>"; };
 		FFB7C4DDC9CF4DAA202F9AA8 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -132,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				834CB81A1CD0A37100EFF42B /* HZAboutMeController.swift */,
+				F92205641CD2F8EC00670D12 /* HZMeTableViewCell.swift */,
 			);
 			name = Me;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				834CB8221CD276E100EFF42B /* HZNoteController.swift in Sources */,
 				834CB8171CD0A34600EFF42B /* HZReachController.swift in Sources */,
 				834CB81B1CD0A37100EFF42B /* HZAboutMeController.swift in Sources */,
+				F92205651CD2F8EC00670D12 /* HZMeTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,6 +417,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = NoteBook/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = chris.cn.NoteBook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -425,6 +430,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = NoteBook/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = chris.cn.NoteBook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
