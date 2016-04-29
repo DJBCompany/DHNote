@@ -9,6 +9,9 @@
 import UIKit
 
 class HZCategoryController: UITableViewController {
+    var sectionArr = ["默认"]
+    
+    var dataArr = [[String:NSObject]]()
     
     var isHidden = false
     
@@ -28,8 +31,7 @@ class HZCategoryController: UITableViewController {
         leftBarButtonItem.setTitleTextAttributes(textProperties, forState: .Normal)
         righBarButtonItem.setTitleTextAttributes(textProperties, forState: .Normal)
 
-        //hidesBottomBarWhenPushed = true
-    
+        tableView.registerClass(HZNoteCell.self, forCellReuseIdentifier: "cell")
     }
     
     
@@ -103,6 +105,11 @@ class HZCategoryController: UITableViewController {
     func addItem(){
         let noteVc = HZNoteController()
         
+        noteVc.noteClosure = { dic->() in
+           self.dataArr.append(dic)
+           self.tableView.reloadData()
+        }
+        
         navigationController?.showViewController(noteVc, sender: nil)
 
         new()
@@ -117,5 +124,37 @@ class HZCategoryController: UITableViewController {
         
         
     }
+    
+    
+    
 
 }
+extension HZCategoryController{
+
+override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    return sectionArr.count
+}
+override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return dataArr.count
+}
+    
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! HZNoteCell
+        
+      
+        cell.dic = dataArr[indexPath.row]
+        
+        
+        return cell
+        
+    }
+    
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sectionArr[section]
+    }
+    
+}
+
+
+

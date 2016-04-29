@@ -12,6 +12,11 @@ import SVProgressHUD
 
 
 class HZNoteController: UIViewController,UITextViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,ZXInputViewDelegate{
+    
+   // var noteClosure:((content:String,time:String)->())?
+    
+    var noteClosure:(([String:NSObject])->())?
+    
     let screenH = UIScreen.mainScreen().bounds.height
     
     
@@ -108,9 +113,16 @@ class HZNoteController: UIViewController,UITextViewDelegate,UIImagePickerControl
     
     
     func save(){
+       let date = NSDate()
+       let formattor = NSDateFormatter()
+       formattor.dateFormat = "yyyy:MM:dd HH:mm"
+       let time = formattor.stringFromDate(date)
         
+      let dic = ["time":time,"content":getTextViewStr()]
         
+       noteClosure?(dic)
         
+      navigationController?.popViewControllerAnimated(true)
     }
     
     
@@ -118,12 +130,12 @@ class HZNoteController: UIViewController,UITextViewDelegate,UIImagePickerControl
     func setUpUI(){
         view.addSubview(textView)
         textView.frame = view.frame
-//        textView.addSubview(collectionView)
-//        collectionView.snp_makeConstraints { (make) -> Void in
-//            make.center.equalTo(textView.snp_center)
-//            make.width.equalTo(ScreenW - 2*albumMargin)
-//            make.height.equalTo(collectionView.snp_width)
-//        }
+        textView.addSubview(collectionView)
+        collectionView.snp_makeConstraints { (make) -> Void in
+            make.center.equalTo(textView.snp_center)
+            make.width.equalTo(ScreenW - 2*albumMargin)
+            make.height.equalTo(collectionView.snp_width)
+        }
         // print(collectionView.frame)
         
     }
@@ -141,16 +153,16 @@ class HZNoteController: UIViewController,UITextViewDelegate,UIImagePickerControl
         txtVw.font = UIFont.systemFontOfSize(16)
         return txtVw
     }()
-//    ///懒加载CollectionView
-//    lazy var collectionView:ZXAlbumCollectionView = {
-//        let collcetVw = ZXAlbumCollectionView()
-//        //MARK: --添加图片 闭包的循环引用
-//        collcetVw.addPhotoClosure = { [weak self] ()->() in
-//            self?.choosePicture()
-//        }
-//        collcetVw.backgroundColor = UIColor.greenColor()
-//        return collcetVw
-//    }()
+    ///懒加载CollectionView
+    lazy var collectionView:ZXAlbumCollectionView = {
+        let collcetVw = ZXAlbumCollectionView()
+        //MARK: --添加图片 闭包的循环引用
+        collcetVw.addPhotoClosure = { [weak self] ()->() in
+            self?.choosePicture()
+        }
+        collcetVw.backgroundColor = UIColor.greenColor()
+        return collcetVw
+    }()
     ///textView的代理方法
     func textViewDidChange(textView: UITextView) {
         //如果没有内容就显示占位符
@@ -207,6 +219,9 @@ class HZNoteController: UIViewController,UITextViewDelegate,UIImagePickerControl
             presentViewController(picker, animated: true, completion: nil)
             //同时实现两个协议才能成为代理
             picker.delegate = self
+            
+            
+            
         }else{
             //无权访问相册
             print("无权访问相册")
@@ -256,20 +271,6 @@ class HZNoteController: UIViewController,UITextViewDelegate,UIImagePickerControl
             
             let shareVc = SLComposeViewController(forServiceType: SLServiceTypeSinaWeibo)
             
-//            var  textViewStr = ""
-//            textView.attributedText.enumerateAttributesInRange(NSMakeRange(0, textView.attributedText.length), options: []) { (data:[String:AnyObject], range:NSRange, _ ) -> Void in
-//                //遍历textView
-//                if let attachment = data["NSAttachment"] as? ZXAttachment{
-//                    //获取png 对应的chs 字符串
-//                    textViewStr += attachment.emotion?.chs ?? ""
-//                }else{
-//                    //截取range范围内的字符串
-//                    let subStr = (self.textView.text as NSString).substringWithRange(range)
-//                    
-//                    textViewStr += subStr
-//                }
-//                
-//            }
             shareVc.setInitialText(getTextViewStr())
             
             presentViewController(shareVc, animated: true, completion: nil)
@@ -328,9 +329,7 @@ extension HZNoteController{
         
         if picker.sourceType == .PhotoLibrary{
             //创建一个数组,存储选择的照片
-           // collectionView.appendImage(image)
-            
-            
+            collectionView.appendImage(image)
         }
         //选完后跳转控制器
         dismissViewControllerAnimated(true, completion: nil)

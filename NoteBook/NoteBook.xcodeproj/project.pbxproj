@@ -28,6 +28,7 @@
 		834CB8341CD2F9D100EFF42B /* ZXTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834CB8331CD2F9D100EFF42B /* ZXTextView.swift */; };
 		834CB8361CD302E500EFF42B /* ZXAlbumCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834CB8351CD302E500EFF42B /* ZXAlbumCollectionView.swift */; };
 		834CB8381CD30C7400EFF42B /* HZTextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834CB8371CD30C7400EFF42B /* HZTextButton.swift */; };
+		83E4CFFB1CD34FEE00AAEDC8 /* HZNoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83E4CFFA1CD34FEE00AAEDC8 /* HZNoteCell.swift */; };
 		F89A2370B88B89FA1129C45B /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFB7C4DDC9CF4DAA202F9AA8 /* Pods.framework */; };
 		F92205651CD2F8EC00670D12 /* HZMeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92205641CD2F8EC00670D12 /* HZMeTableViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -48,7 +49,6 @@
 		834CB81F1CD246D400EFF42B /* HZPoperView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HZPoperView.swift; sourceTree = "<group>"; };
 		834CB8211CD276E100EFF42B /* HZNoteController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HZNoteController.swift; sourceTree = "<group>"; };
 		834CB8231CD2780E00EFF42B /* HZMainNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HZMainNavController.swift; sourceTree = "<group>"; };
-
 		834CB8251CD2F7A300EFF42B /* Emoticons.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Emoticons.bundle; sourceTree = "<group>"; };
 		834CB8271CD2F7C300EFF42B /* ZXAttachment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXAttachment.swift; sourceTree = "<group>"; };
 		834CB8281CD2F7C300EFF42B /* ZXEmotion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXEmotion.swift; sourceTree = "<group>"; };
@@ -59,7 +59,7 @@
 		834CB8331CD2F9D100EFF42B /* ZXTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXTextView.swift; sourceTree = "<group>"; };
 		834CB8351CD302E500EFF42B /* ZXAlbumCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXAlbumCollectionView.swift; sourceTree = "<group>"; };
 		834CB8371CD30C7400EFF42B /* HZTextButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HZTextButton.swift; sourceTree = "<group>"; };
-
+		83E4CFFA1CD34FEE00AAEDC8 /* HZNoteCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HZNoteCell.swift; sourceTree = "<group>"; };
 		F92205641CD2F8EC00670D12 /* HZMeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HZMeTableViewCell.swift; sourceTree = "<group>"; };
 		FFB7C4DDC9CF4DAA202F9AA8 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -194,6 +194,7 @@
 				834CB82C1CD2F7C300EFF42B /* ZXInputView.swift */,
 				834CB81F1CD246D400EFF42B /* HZPoperView.swift */,
 				834CB8371CD30C7400EFF42B /* HZTextButton.swift */,
+				83E4CFFA1CD34FEE00AAEDC8 /* HZNoteCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -347,6 +348,7 @@
 				834CB82D1CD2F7C300EFF42B /* ZXAttachment.swift in Sources */,
 				834CB8321CD2F7C300EFF42B /* ZXInputView.swift in Sources */,
 				834CB80C1CD09BE800EFF42B /* HZMainTabBarController.swift in Sources */,
+				83E4CFFB1CD34FEE00AAEDC8 /* HZNoteCell.swift in Sources */,
 				834CB82E1CD2F7C300EFF42B /* ZXEmotion.swift in Sources */,
 				834CB7F71CD09AD300EFF42B /* AppDelegate.swift in Sources */,
 				834CB8221CD276E100EFF42B /* HZNoteController.swift in Sources */,
