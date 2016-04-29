@@ -104,7 +104,6 @@ class HZCategoryController: UITableViewController {
         let noteVc = HZNoteController()
         
         navigationController?.showViewController(noteVc, sender: nil)
-        //navigationController?.pushViewController(noteVc, animated: false)
         new()
     }
     
