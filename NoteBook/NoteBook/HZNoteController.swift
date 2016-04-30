@@ -8,9 +8,18 @@
 
 import UIKit
 import Social
+import SVProgressHUD
+
 
 class HZNoteController: UIViewController,UITextViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,ZXInputViewDelegate{
+    
+   // var noteClosure:((content:String,time:String)->())?
+    
+    var noteClosure:(([String:NSObject])->())?
+    
     let screenH = UIScreen.mainScreen().bounds.height
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.whiteColor()
@@ -91,14 +100,29 @@ class HZNoteController: UIViewController,UITextViewDelegate,UIImagePickerControl
     
     func setNav(){
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "返回", style: .Plain, target: self, action: "disMissVc")
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "分享", style: .Plain, target: self, action: "share")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "保存", style: .Plain, target: self, action: "save")
         navigationItem.rightBarButtonItem?.enabled = false
         
     }
-    ///Mark--按钮点击事件
+    ///Mark--导航栏按钮点击事件按钮点击事件
     func disMissVc(){
-        dismissViewControllerAnimated(true) { () -> Void in
-        }
+
+        navigationController?.popViewControllerAnimated(true)
+        
+    }
+    
+    
+    func save(){
+       let date = NSDate()
+       let formattor = NSDateFormatter()
+       formattor.dateFormat = "yyyy:MM:dd HH:mm"
+       let time = formattor.stringFromDate(date)
+        
+      let dic = ["time":time,"content":getTextViewStr()]
+        
+       noteClosure?(dic)
+        
+      navigationController?.popViewControllerAnimated(true)
     }
     
     
@@ -118,7 +142,7 @@ class HZNoteController: UIViewController,UITextViewDelegate,UIImagePickerControl
     ///懒加载textView
     lazy var textView:ZXTextView = {
         let txtVw = ZXTextView()
-        txtVw.placeHolder = "刚吃完饭就想吃饭的男人不是好女人"
+        txtVw.placeHolder = "凛冬将至"
         txtVw.delegate = self
         //滑动让键盘消失
         //设置垂直滚动
@@ -144,7 +168,7 @@ class HZNoteController: UIViewController,UITextViewDelegate,UIImagePickerControl
         //如果没有内容就显示占位符
         
         textView.hasText() ? (self.textView.placeHolder = "") :
-            (self.textView.placeHolder = "好好学习,天天向上")
+            (self.textView.placeHolder = "凛冬将至,")
         navigationItem.rightBarButtonItem?.enabled = textView.hasText()
         //重绘 一定要重绘否则不会改变
         self.textView.setNeedsDisplay()
@@ -158,8 +182,8 @@ class HZNoteController: UIViewController,UITextViewDelegate,UIImagePickerControl
     lazy var toolBar:UIToolbar = {
         let tlBar = UIToolbar()
         let itemSettings = [["title": "相册", "action": "choosePicture"],
-            ["title": "百度"],
-            ["title": "语音"],
+            ["title": "百度", "action": "goBaidu"],
+            ["title": "分享","action":"share"],
             ["title": "表情", "action": "inputEmoticon"]]
         var items = [UIBarButtonItem]()
         for dic in itemSettings{
@@ -195,6 +219,9 @@ class HZNoteController: UIViewController,UITextViewDelegate,UIImagePickerControl
             presentViewController(picker, animated: true, completion: nil)
             //同时实现两个协议才能成为代理
             picker.delegate = self
+            
+            
+            
         }else{
             //无权访问相册
             print("无权访问相册")
@@ -214,10 +241,64 @@ class HZNoteController: UIViewController,UITextViewDelegate,UIImagePickerControl
         //自定义键盘
     }
     
-    deinit{
+    
+    ///百度
+    func goBaidu(){
+        let url = NSURL(string: "https://www.baidu.com")
+        UIApplication.sharedApplication().openURL(url!)
+        
+    }
+    
+        deinit{
         print("vc 88")
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillChangeFrameNotification, object: nil)
         NSNotificationCenter.defaultCenter().removeObserver(self, name: "writeEmotion", object: nil)
+    }
+    
+    //分享按钮
+    func share(){
+        
+        if(textView.hasText() == false){
+            SVProgressHUD .showErrorWithStatus("分享内容不能为空")
+            return
+        }
+        
+        
+        if(SLComposeViewController.isAvailableForServiceType(SLServiceTypeSinaWeibo)){
+            
+            textView.resignFirstResponder()
+            
+            
+            let shareVc = SLComposeViewController(forServiceType: SLServiceTypeSinaWeibo)
+            
+            shareVc.setInitialText(getTextViewStr())
+            
+            presentViewController(shareVc, animated: true, completion: nil)
+            
+            
+            textView.text = nil
+            
+        }
+        
+    }
+   ///获取textview上的文字
+    func getTextViewStr()->String{
+                    var  textViewStr = ""
+                    textView.attributedText.enumerateAttributesInRange(NSMakeRange(0, textView.attributedText.length), options: []) { (data:[String:AnyObject], range:NSRange, _ ) -> Void in
+                        //遍历textView
+                        if let attachment = data["NSAttachment"] as? ZXAttachment{
+                            //获取png 对应的chs 字符串
+                            textViewStr += attachment.emotion?.chs ?? ""
+                        }else{
+                            //截取range范围内的字符串
+                            let subStr = (self.textView.text as NSString).substringWithRange(range)
+        
+                            textViewStr += subStr
+                        }
+                        
+                    }
+
+        return textViewStr
     }
     
     
@@ -236,11 +317,6 @@ class HZNoteController: UIViewController,UITextViewDelegate,UIImagePickerControl
         
         testInputView.inputCollectionView.scrollToItemAtIndexPath(indexPath, atScrollPosition: .None, animated: false)
     }
-    
-    
-   
-    
-    
 }
 
 
@@ -254,8 +330,6 @@ extension HZNoteController{
         if picker.sourceType == .PhotoLibrary{
             //创建一个数组,存储选择的照片
             collectionView.appendImage(image)
-            
-            
         }
         //选完后跳转控制器
         dismissViewControllerAnimated(true, completion: nil)
