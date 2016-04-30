@@ -30,6 +30,10 @@
 		834CB8381CD30C7400EFF42B /* HZTextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834CB8371CD30C7400EFF42B /* HZTextButton.swift */; };
 		F89A2370B88B89FA1129C45B /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFB7C4DDC9CF4DAA202F9AA8 /* Pods.framework */; };
 		F92205651CD2F8EC00670D12 /* HZMeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F92205641CD2F8EC00670D12 /* HZMeTableViewCell.swift */; };
+		F9D7021E1CD33EEE00BB3DD1 /* HZInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D7021D1CD33EEE00BB3DD1 /* HZInfoViewController.swift */; };
+		F9D702201CD34A6200BB3DD1 /* HZInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D7021F1CD34A6200BB3DD1 /* HZInfoTableViewCell.swift */; };
+		F9D702221CD3540000BB3DD1 /* HZLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9D702211CD3540000BB3DD1 /* HZLoginViewController.swift */; };
+		F9D702241CD3541D00BB3DD1 /* HZLoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F9D702231CD3541D00BB3DD1 /* HZLoginViewController.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,7 +52,6 @@
 		834CB81F1CD246D400EFF42B /* HZPoperView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HZPoperView.swift; sourceTree = "<group>"; };
 		834CB8211CD276E100EFF42B /* HZNoteController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HZNoteController.swift; sourceTree = "<group>"; };
 		834CB8231CD2780E00EFF42B /* HZMainNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HZMainNavController.swift; sourceTree = "<group>"; };
-
 		834CB8251CD2F7A300EFF42B /* Emoticons.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Emoticons.bundle; sourceTree = "<group>"; };
 		834CB8271CD2F7C300EFF42B /* ZXAttachment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXAttachment.swift; sourceTree = "<group>"; };
 		834CB8281CD2F7C300EFF42B /* ZXEmotion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXEmotion.swift; sourceTree = "<group>"; };
@@ -59,8 +62,11 @@
 		834CB8331CD2F9D100EFF42B /* ZXTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXTextView.swift; sourceTree = "<group>"; };
 		834CB8351CD302E500EFF42B /* ZXAlbumCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZXAlbumCollectionView.swift; sourceTree = "<group>"; };
 		834CB8371CD30C7400EFF42B /* HZTextButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HZTextButton.swift; sourceTree = "<group>"; };
-
 		F92205641CD2F8EC00670D12 /* HZMeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HZMeTableViewCell.swift; sourceTree = "<group>"; };
+		F9D7021D1CD33EEE00BB3DD1 /* HZInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HZInfoViewController.swift; sourceTree = "<group>"; };
+		F9D7021F1CD34A6200BB3DD1 /* HZInfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HZInfoTableViewCell.swift; sourceTree = "<group>"; };
+		F9D702211CD3540000BB3DD1 /* HZLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HZLoginViewController.swift; sourceTree = "<group>"; };
+		F9D702231CD3541D00BB3DD1 /* HZLoginViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HZLoginViewController.storyboard; sourceTree = "<group>"; };
 		FFB7C4DDC9CF4DAA202F9AA8 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -158,6 +164,10 @@
 			children = (
 				834CB81A1CD0A37100EFF42B /* HZAboutMeController.swift */,
 				F92205641CD2F8EC00670D12 /* HZMeTableViewCell.swift */,
+				F9D7021D1CD33EEE00BB3DD1 /* HZInfoViewController.swift */,
+				F9D7021F1CD34A6200BB3DD1 /* HZInfoTableViewCell.swift */,
+				F9D702211CD3540000BB3DD1 /* HZLoginViewController.swift */,
+				F9D702231CD3541D00BB3DD1 /* HZLoginViewController.storyboard */,
 			);
 			name = Me;
 			sourceTree = "<group>";
@@ -277,6 +287,7 @@
 			files = (
 				834CB8011CD09AD300EFF42B /* LaunchScreen.storyboard in Resources */,
 				834CB8261CD2F7A300EFF42B /* Emoticons.bundle in Resources */,
+				F9D702241CD3541D00BB3DD1 /* HZLoginViewController.storyboard in Resources */,
 				834CB7FE1CD09AD300EFF42B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -336,15 +347,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9D702221CD3540000BB3DD1 /* HZLoginViewController.swift in Sources */,
 				834CB8191CD0A35B00EFF42B /* HZAnalysisController.swift in Sources */,
 				834CB8361CD302E500EFF42B /* ZXAlbumCollectionView.swift in Sources */,
 				834CB8151CD0A21800EFF42B /* HZCategoryController.swift in Sources */,
 				834CB82F1CD2F7C300EFF42B /* ZXEmotionBtn.swift in Sources */,
 				834CB8381CD30C7400EFF42B /* HZTextButton.swift in Sources */,
 				834CB8301CD2F7C300EFF42B /* ZXEmotionManager.swift in Sources */,
+				F9D7021E1CD33EEE00BB3DD1 /* HZInfoViewController.swift in Sources */,
 				834CB8201CD246D400EFF42B /* HZPoperView.swift in Sources */,
 				834CB8241CD2780E00EFF42B /* HZMainNavController.swift in Sources */,
 				834CB82D1CD2F7C300EFF42B /* ZXAttachment.swift in Sources */,
+				F9D702201CD34A6200BB3DD1 /* HZInfoTableViewCell.swift in Sources */,
 				834CB8321CD2F7C300EFF42B /* ZXInputView.swift in Sources */,
 				834CB80C1CD09BE800EFF42B /* HZMainTabBarController.swift in Sources */,
 				834CB82E1CD2F7C300EFF42B /* ZXEmotion.swift in Sources */,

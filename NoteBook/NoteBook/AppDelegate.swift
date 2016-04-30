@@ -12,13 +12,14 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        let mainTab = HZMainTabBarController()
-        window?.rootViewController = mainTab
+        
+        let loginVc = UIStoryboard(name: "HZLoginViewController", bundle: nil).instantiateInitialViewController()
+        window?.rootViewController = loginVc
+//        let mainTab = HZMainTabBarController()
+//        window?.rootViewController = mainTab
         window?.makeKeyAndVisible()
         
         return true
