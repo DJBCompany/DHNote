@@ -11,10 +11,24 @@ import SnapKit
 
 class HZMeTableViewCell: UITableViewCell {
     
-
-    
+    // 内容
+    lazy var contentLabel: UILabel = {
+        let contentLabel = UILabel()
+        contentLabel.textAlignment = .Center
+        return contentLabel
+    }()
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        contentView.addSubview(contentLabel)
+        contentLabel.snp_makeConstraints { (make) -> Void in
+            make.center.equalTo(contentView)
+        }
+    }
+    
+    var contentString: String? {
+        didSet{
+            contentLabel.text = contentString
+        }
     }
 
     required init?(coder aDecoder: NSCoder) {
