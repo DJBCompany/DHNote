@@ -9,9 +9,12 @@
 import UIKit
 
 class HZMainTabBarController: UITabBarController {
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let bar = HZTabBar()
+        setValue(bar, forKey: "tabBar")
         addAllChildControllers()
     }
 
@@ -40,7 +43,8 @@ class HZMainTabBarController: UITabBarController {
     func addChildViewController(childController: UIViewController, title:String, image:String) {
         let nav = HZMainNavController(rootViewController: childController)
         
-        childController.title = title
+        navigationItem.title = title
+        
         addChildViewController(nav);
     }
     

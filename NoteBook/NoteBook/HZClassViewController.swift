@@ -11,7 +11,11 @@ import UIKit
 class HZClassViewController: UIViewController {
     
     
-    var classclosure:((className:String)->())?
+    var classclosure:((dic:[String:NSObject])->())?
+    
+    
+    ///传过去的应该是一个字典  
+   // var classClosure:((dic:[String:NSObject])->())?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,7 +71,11 @@ class HZClassViewController: UIViewController {
         
         classTextField.resignFirstResponder()
         
-        classclosure?(className: classTextField.text!)
+        var sectionData = [String]()
+        
+        let dict:[String: NSObject] = ["header":classTextField.text!,"data":sectionData]
+        
+        classclosure?(dic:dict)
         
         dismissViewControllerAnimated(true, completion: nil)
         

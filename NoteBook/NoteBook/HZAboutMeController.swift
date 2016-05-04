@@ -58,7 +58,7 @@ class HZAboutMeController: UITableViewController {
     
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return modelArray?.count ?? 0
+        return modelArray?.count ?? 0;
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -69,9 +69,18 @@ class HZAboutMeController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
         if indexPath.row == 0 {
-            let infoVC = HZInfoViewController()
-            navigationController?.showViewController(infoVC, sender: nil)
+            let infoVc = HZInfoViewController()
+            navigationController?.showViewController(infoVc, sender: nil)
+        }
+        if indexPath.row == 1 {
+            let changePasswordVc = HZChangePasswordViewController()
+            navigationController?.showViewController(changePasswordVc, sender: nil)
+        }
+        if indexPath.row == 2 {
+            let changeQuestionVc = HZChangeFindQuestionViewController()
+            navigationController?.showViewController(changeQuestionVc, sender: nil)
         }
     }
 

@@ -49,7 +49,11 @@ class HZInfoViewController: UITableViewController {
             make.left.equalTo(headerView).offset(20)
             make.centerY.equalTo(headerView)
         }
-        nameLabel.text = "李宇沛"
+        // 从本地沙盒中取
+        let UserPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true).last
+        let filePath = (UserPath! as NSString).stringByAppendingPathComponent("userInfo.plist")
+        let infoModel: HZInfoModel? = NSKeyedUnarchiver.unarchiveObjectWithFile(filePath) as? HZInfoModel
+        nameLabel.text = infoModel?.username
     }
 
     // MARK: - Table view data source
